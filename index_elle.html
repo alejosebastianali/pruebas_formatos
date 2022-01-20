@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        /*DATOS WEIZENBOCK*/
+        var GDPRv;
+        if(typeof $.cookie("cookieconsent_status") == "undefined"){
+            GDPRv = "-2";
+        }else{
+            if($.cookie("cookieconsent_status") == "deny"){
+                GDPRv = "0";
+            }
+            if($.cookie("cookieconsent_status") == "allow"){
+                GDPRv = "1";
+            }
+        }
+    
+        var adskv = {
+            section: ["home"],
+            kw_referer: [document.referrer],
+            kw_ck: GDPRv,
+            kw_pw: [2],
+            kw_temperatura: [sasClarinHelper.getTemperatura()],
+            kw_pw_counter: [sasClarinHelper.getPaseCounter()],
+            kw_time: [Date.now()],
+            kw_choque: [sasClarinHelper.getPaywallChoque()],
+            kw_width: [window.screen.availWidth],
+            kw_height: [window.screen.availHeight],
+            kw_keywords: [],
+            kw_tags: [],
+            kw_login_edad: [],
+            kw_login_sexo: [],
+        };
+    
+        $(document).on('wa.ready', function(){
+            var _user = WAuth.getUserSync();
+            if(_user) {
+                $.extend(adskv, {
+                    "kw_login_edad": [sasClarinHelper.getAge(_user.fechaNacimiento)],
+                    "kw_login_sexo": [_user.genero]
+                });
+            } 
+        });
+        console.log(adskv)
+        /* FIN WEIZENBOCK*/
+    
+        /* CONFIGURACION ADS*/
+        var flotante2full = false;
+        var flotante3full = false;
+        var flotante4full = false;
+        window.googletag = window.googletag || {cmd: []};
+        googletag.cmd.push(function() {
+            var pageConfig = {
+                allowOverlayExpansion: true,
+                allowPushExpansion: true,
+                sandbox: true
+            };
+            googletag.pubads().addEventListener('slotRenderEnded', function(event) {
+                var slot = event.slot;
+                console.group('Slot', slot.getSlotElementId(), 'finished rendering.');
+                // Log details of the rendered ad.
+                console.log('Advertiser ID:', event.advertiserId);
+                console.log('Campaign ID: ', event.campaignId);
+                console.log('Creative ID: ', event.creativeId);
+                console.log('Is empty?:', event.isEmpty);
+                console.log('Line Item ID:', event.lineItemId);
+                console.log('Size:', event.size);
+                console.log(
+                'Source Agnostic Creative ID:', event.sourceAgnosticCreativeId);
+                console.log(
+                'Source Agnostic Line Item ID:', event.sourceAgnosticLineItemId);
+                console.groupEnd();
+    
+                if (slot === targetSlot2) {
+                    // Slot specific logic.
+                    console.log('Is empty?:', event.isEmpty);
+                    flotante2full = !event.isEmpty;
+                }
+                if (flotante2full) {
+                    document.getElementById('b-main-footer-cerrar').setAttribute("style", "display: block;");
+                } else if (flotante2full) {
+                    document.getElementById('b-main-footer-cerrar').setAttribute("style", "display: none;");
+                }
+         
+                if (slot === targetSlot4) {
+                    // Slot specific logic.
+                    console.log('Is empty?:', event.isEmpty);
+                    flotante4full = !event.isEmpty;
+                }
+                if (flotante4full && window.innerWidth < 1024) {
+                    document.getElementById('b-main-top-cerrar').setAttribute("style", "display: block;");
+                } else if (flotante4full) {
+                    document.getElementById('b-main-top-cerrar').setAttribute("style", "display: none;");
+                }
+            });
+    
+            googletag.pubads().setSafeFrameConfig(pageConfig);
+    
+            googletag.defineOutOfPageSlot('/242767168/clarin/home/flotante1', 'div-gpt-ad-flotante1').addService(googletag.pubads());
+    
+            var mapping = googletag.sizeMapping()
+            .addSize([1280, 0], [[900, 50], [950, 90], [970, 90], [728, 90]])
+            .addSize([0, 0], [320, 50])
+            .build();
+            var targetSlot2 = googletag.defineSlot('/242767168/clarin/home/flotante2', [[728, 90], [900, 50], [970, 90], [320, 50], [950, 90]], 'div-gpt-ad-flotante2')
+            .addService(googletag.pubads())
+            .defineSizeMapping(mapping);
+    
+            var mapping = googletag.sizeMapping()
+            .addSize([1024, 0], [])
+            .addSize([0, 0], [])
+            .build();
+            var targetSlot3 = googletag.defineSlot('/242767168/clarin/home/flotante3', [1, 1], 'div-gpt-ad-flotante3')
+            .addService(googletag.pubads())
+            .defineSizeMapping(mapping);
+            
+            var mapping = googletag.sizeMapping()
+            .addSize([1024, 0], [])
+            .addSize([0, 0], [320, 50])
+            .build();
+    
+            var targetSlot4 = googletag.defineSlot('/242767168/clarin/home/flotante4', [[320, 50]], 'div-gpt-ad-flotante4')
+            .addService(googletag.pubads())
+            .defineSizeMapping(mapping);
+    
+            
+            googletag.defineSlot('/242767168/clarin/home/flotante5', [[1200,600]], 'div-gpt-ad-6905052-1')
+            .addService(googletag.pubads());
+            
+            
+            var mapping = googletag.sizeMapping()
+            .addSize([1366, 0], [50,200])
+            .addSize([0, 0], [])
+            .build();
+            googletag.defineSlot('/242767168/clarin/home/flotante5', [[50,200]], 'div-gpt-ad-6905052-2')
+            .addService(googletag.pubads())
+            .defineSizeMapping(mapping);
+                   
+     
+    
+            googletag.defineSlot('/242767168/clarin/home/flotante6', [[1,1]], 'div-gpt-ad-flotante6').addService(googletag.pubads());
+    
+            var mapping = googletag.sizeMapping()
+            .addSize([1280, 0], [[970, 250], [950, 200], [728, 90], [950, 300], [970, 300], [950, 90], [950, 250], [970, 200], [970, 100], [950, 100]])
+            .addSize([1024, 0], [728, 90])
+            .addSize([0, 0], [[320, 50],[320, 90],[320, 100]])
+            .build();
+    
+            googletag.defineSlot('/242767168/clarin/home/horizontal1', [[320, 50], [320, 90], [320, 100], [728, 90], [970, 250], [950, 200], [728, 90], [950, 300], [970, 300], [950, 90], [950, 250], [970, 200], [950, 100], [970, 100]], 'div-gpt-ad-horizontal1')
+            .addService(googletag.pubads())
+            .defineSizeMapping(mapping);
+    
+            var mapping = googletag.sizeMapping()
+            .addSize([1280, 0], [[970, 250], [950, 200], [950, 300], [970, 300], [950, 250], [970, 200]])
+            .addSize([1024, 0], [728, 90])
+            .addSize([0, 0], [[320, 50], [320, 90], [320, 100], [300, 250], [300, 600], "fluid"])
+            .build();
+            googletag.defineSlot('/242767168/clarin/home/horizontal5', [[320, 50], [320, 90], [320, 100], [300, 250], [300, 600], [970, 250], [950, 200], [728, 90], [950, 300], [970, 300], [950, 250], [970, 200], "fluid"],'div-gpt-ad-horizontal5')
+            .addService(googletag.pubads())
+            .defineSizeMapping(mapping);
+    
+            var mapping = googletag.sizeMapping()
+            .addSize([1024, 0], [[300, 250], [300, 600]])
+            .addSize([0, 0], [[300, 250], [300, 600], "fluid"])
+            .build();
+            googletag.defineSlot('/242767168/clarin/home/caja0', [[300, 250], [300, 600], "fluid"], 'div-gpt-ad-caja0')
+            .addService(googletag.pubads())
+            .defineSizeMapping(mapping);
+    
+            var mapping = googletag.sizeMapping()
+            .addSize([1024, 0], [300, 250])
+            .addSize([0, 0], [[300, 250], [300, 600], "fluid"])
+            .build();
+            googletag.defineSlot('/242767168/clarin/home/caja1', [[300, 250], [300, 600], "fluid"], 'div-gpt-ad-caja1')
+            .addService(googletag.pubads())
+            .defineSizeMapping(mapping);
+    
+            var mapping = googletag.sizeMapping()
+            .addSize([1024, 0], [300, 250])
+            .addSize([0, 0], [[300, 250], [300, 600], "fluid"])
+            .build();
+            googletag.defineSlot('/242767168/clarin/home/caja6', [[300, 250], [300, 600], "fluid"], 'div-gpt-ad-caja6').addService(googletag.pubads()).defineSizeMapping(mapping);
+                    
+            googletag.pubads().enableSingleRequest();
+            googletag.pubads().collapseEmptyDivs();
+    
+            googletag.pubads()
+            .setTargeting('section', [adskv.section])
+            .setTargeting('kw_referer', [adskv.kw_referer])
+            .setTargeting('kw_ck', [adskv.kw_ck])
+            .setTargeting('kw_pw', "'"+adskv.kw_pw+"'")
+            .setTargeting('kw_temperatura', [adskv.kw_temperatura])
+            .setTargeting('kw_pw_counter', "'"+adskv.kw_pw_counter+"'")
+            .setTargeting('kw_time', "'"+adskv.kw_time+"'")
+            .setTargeting('kw_choque', [adskv.kw_choque])
+            .setTargeting('kw_width', "'"+adskv.kw_width+"'")
+            .setTargeting('kw_height', "'"+adskv.kw_height+"'")
+            .setTargeting('kw_keywords', [adskv.kw_keywords])
+            .setTargeting('kw_tags', [adskv.kw_tags])
+            .setTargeting('kw_login_edad', "'"+adskv.kw_login_edad+"'")
+            .setTargeting('kw_login_sexo', [adskv.kw_login_sexo]);
+            
+            googletag.enableServices();
+        });
+    
+        /* FIN CONFIGURACION ADS*/
+           
+        /* function sendGTM(){
+            try{
+                if(typeof(WAuth) == "undefined")
+                    throw 'waiting WAuth';
+    
+                WAuth.pushDataGTM(); 
+            } catch(e) {
+                setTimeout(function(){
+                    sendGTM();
+                }, 200);
+            }
+        }
+        sendGTM(); */
+        
+    </script>
+
+
+</head>
+<body>
+
+    <div id="div-gpt-ad-caja1" class="banner_center ad-slot box-adv" data-google-query-id="CPK768jXwPUCFY2MlQIdOgwH6A">
+        <div id="google_ads_iframe_/242767168/clarin/home/caja1_0__container__" style="border: 0pt none;"></div>
+    </div>
+    
+</body>
+</html>
