@@ -1,0 +1,130 @@
+section#moduloVideo{
+    width: 100%;
+    height: auto;
+    background-image: url(./img/fondo_elle_video_desktop.jpg);
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    .cont-modulo{
+        width: 975px;
+        padding: 50px 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        margin: auto;
+        box-sizing: border-box;
+
+        .modelo-desktop{
+            display: block;
+        }
+
+        .modelo-mobile{
+            display: none;
+        }
+
+        .cont-video-jumbo{
+            width: 100%;
+            height: auto;
+        }
+
+        .texto-jumbo{
+            width: 100%;
+            padding:20px 0px ;
+            box-sizing: border-box;
+            border-bottom: 1px solid $colorEvento;
+
+            h1{
+                font-family: 'SaolDisplay-Regular';
+                font-size: 38px;
+                margin: 0px;
+                color: $colorEvento;
+                font-weight: normal;
+                text-align: center;
+
+            }
+        }
+
+        .cont-charla-video{
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px 0px;
+
+            .charla-video{
+                width: 232px;
+                height: 250px;
+                display: flex;
+                flex-direction: column;
+
+                h5{
+                    font-family: 'SaolDisplay-Regular';
+                    font-size: 24px;
+                    margin: 10px 0px;
+                    color: #fff;
+                    font-weight: normal;
+                    text-align: left;
+                }
+
+                p{
+                    font-family: 'SaolDisplay-Regular';
+                    font-size: 16px;
+                    margin: 10px 0px;
+                    color: #fff;
+                    font-weight: normal;
+                    text-align: left;
+                    padding: 0px 0px 10px 0px;
+                    border-bottom: 1px solid #fff;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+
+    section#moduloVideo{
+        background-image: url(./img/fondo_elle_video_mobile.jpg);
+    
+        .cont-modulo{
+    
+            .modelo-mobile{
+                display: block;
+            }
+
+            .modelo-desktop{
+                display: none;
+            }
+
+            .texto-jumbo{
+                h1{
+                    font-size: 26px;
+                }
+            }
+
+            .cont-charla-video{
+                flex-direction: column;
+                align-items: center;
+    
+                .charla-video{
+    
+                    h5{
+                        font-size: 20px;
+                        text-align: center;
+                    }
+    
+                    p{
+                        font-size: 14px;
+                        text-align: center;
+                    }
+                }
+            }
+
+        }
+    }
+}

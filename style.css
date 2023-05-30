@@ -1,0 +1,157 @@
+body {
+  margin: 0px;
+}
+
+@font-face {
+  font-family: SaolDisplay-Regular;
+  src: url(/fonts/SaolDisplay-Regular.woff);
+}
+
+section#moduloVideo {
+  width: 100%;
+  height: auto;
+  background-image: url(./img/fondo_elle_video_desktop.jpg);
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+section#moduloVideo .cont-modulo {
+  width: 975px;
+  padding: 50px 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section#moduloVideo .cont-modulo .modelo-desktop {
+  display: block;
+}
+
+section#moduloVideo .cont-modulo .modelo-mobile {
+  display: none;
+}
+
+section#moduloVideo .cont-modulo .cont-video-jumbo {
+  width: 100%;
+  height: auto;
+}
+
+section#moduloVideo .cont-modulo .texto-jumbo {
+  width: 100%;
+  padding: 20px 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 1px solid #FFC845;
+}
+
+section#moduloVideo .cont-modulo .texto-jumbo h1 {
+  font-family: 'SaolDisplay-Regular';
+  font-size: 38px;
+  margin: 0px;
+  color: #FFC845;
+  font-weight: normal;
+  text-align: center;
+}
+
+section#moduloVideo .cont-modulo .cont-charla-video {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px 0px;
+}
+
+section#moduloVideo .cont-modulo .cont-charla-video .charla-video {
+  width: 232px;
+  height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+section#moduloVideo .cont-modulo .cont-charla-video .charla-video h5 {
+  font-family: 'SaolDisplay-Regular';
+  font-size: 24px;
+  margin: 10px 0px;
+  color: #fff;
+  font-weight: normal;
+  text-align: left;
+}
+
+section#moduloVideo .cont-modulo .cont-charla-video .charla-video p {
+  font-family: 'SaolDisplay-Regular';
+  font-size: 16px;
+  margin: 10px 0px;
+  color: #fff;
+  font-weight: normal;
+  text-align: left;
+  padding: 0px 0px 10px 0px;
+  border-bottom: 1px solid #fff;
+}
+
+@media (max-width: 1000px) {
+  section#moduloVideo {
+    background-image: url(./img/fondo_elle_video_mobile.jpg);
+  }
+  section#moduloVideo .cont-modulo .modelo-mobile {
+    display: block;
+  }
+  section#moduloVideo .cont-modulo .modelo-desktop {
+    display: none;
+  }
+  section#moduloVideo .cont-modulo .texto-jumbo h1 {
+    font-size: 26px;
+  }
+  section#moduloVideo .cont-modulo .cont-charla-video {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  section#moduloVideo .cont-modulo .cont-charla-video .charla-video h5 {
+    font-size: 20px;
+    text-align: center;
+  }
+  section#moduloVideo .cont-modulo .cont-charla-video .charla-video p {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+/*# sourceMappingURL=style.css.map */
