@@ -24,6 +24,7 @@ section#moduloVideo {
 
 section#moduloVideo .cont-modulo {
   width: 975px;
+  margin: auto;
   padding: 50px 8px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,9 +41,25 @@ section#moduloVideo .cont-modulo {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: auto;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+section#moduloVideo .cont-modulo .cont-video-jumbo {
+  width: 100%;
+  height: auto;
+  max-width: 975px;
+  padding-top: 56.25%;
+  /*Relacion 16/9 = 56.25%*/
+  position: relative;
+}
+
+section#moduloVideo .cont-modulo .cont-video-jumbo iframe {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
 }
 
 section#moduloVideo .cont-modulo .modelo-desktop {
@@ -51,11 +68,6 @@ section#moduloVideo .cont-modulo .modelo-desktop {
 
 section#moduloVideo .cont-modulo .modelo-mobile {
   display: none;
-}
-
-section#moduloVideo .cont-modulo .cont-video-jumbo {
-  width: 100%;
-  height: auto;
 }
 
 section#moduloVideo .cont-modulo .texto-jumbo {
@@ -88,12 +100,11 @@ section#moduloVideo .cont-modulo .cont-charla-video {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 20px 0px;
 }
 
 section#moduloVideo .cont-modulo .cont-charla-video .charla-video {
   width: 232px;
-  height: 250px;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -101,6 +112,7 @@ section#moduloVideo .cont-modulo .cont-charla-video .charla-video {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 20px 0px 10px 0px;
 }
 
 section#moduloVideo .cont-modulo .cont-charla-video .charla-video h5 {
@@ -121,6 +133,13 @@ section#moduloVideo .cont-modulo .cont-charla-video .charla-video p {
   text-align: left;
   padding: 0px 0px 10px 0px;
   border-bottom: 1px solid #fff;
+}
+
+section#moduloVideo .cont-modulo .cont-charla-video .charla-video iframe#modeloCapsula {
+  width: 232px;
+  height: 129px;
+  top: 0px;
+  left: 0px;
 }
 
 @media (max-width: 1000px) {
@@ -145,6 +164,10 @@ section#moduloVideo .cont-modulo .cont-charla-video .charla-video p {
         -ms-flex-align: center;
             align-items: center;
   }
+  section#moduloVideo .cont-modulo .cont-charla-video .charla-video {
+    width: 300px;
+    padding: 10px 0px;
+  }
   section#moduloVideo .cont-modulo .cont-charla-video .charla-video h5 {
     font-size: 20px;
     text-align: center;
@@ -152,6 +175,10 @@ section#moduloVideo .cont-modulo .cont-charla-video .charla-video p {
   section#moduloVideo .cont-modulo .cont-charla-video .charla-video p {
     font-size: 14px;
     text-align: center;
+  }
+  section#moduloVideo .cont-modulo .cont-charla-video .charla-video iframe#modeloCapsula {
+    width: 300px;
+    height: 169px;
   }
 }
 /*# sourceMappingURL=style.css.map */
