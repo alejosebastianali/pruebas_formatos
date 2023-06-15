@@ -170,6 +170,12 @@ section#moduloVideo .cont-modulo .cont-charla-video .charla-video iframe#modeloC
   section#moduloVideo .cont-modulo .modelo-desktop {
     display: none;
   }
+  section#moduloVideo .cont-modulo .texto-jumbo .logo-elle {
+    width: 300px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
   section#moduloVideo .cont-modulo .texto-jumbo h1 {
     font-size: 26px;
   }
@@ -188,13 +194,13 @@ section#moduloVideo .cont-modulo .cont-charla-video .charla-video iframe#modeloC
   }
   section#moduloVideo .cont-modulo .cont-charla-video .charla-video .cont-nombre {
     width: 100%;
-    height: 500px;
+    height: 90px;
   }
   section#moduloVideo .cont-modulo .cont-charla-video .charla-video .cont-nombre h5 {
     font-size: 20px;
     text-align: center;
   }
-  section#moduloVideo .cont-modulo .cont-charla-video .charla-video p {
+  section#moduloVideo .cont-modulo .cont-charla-video .charla-video .cont-detalle p {
     font-size: 14px;
     text-align: center;
   }

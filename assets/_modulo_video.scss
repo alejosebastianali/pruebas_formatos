@@ -151,6 +151,14 @@ section#moduloVideo{
             }
 
             .texto-jumbo{
+
+                .logo-elle{
+                    width: 300px;
+                    height: auto;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
                 h1{
                     font-size: 26px;
                 }
@@ -166,7 +174,7 @@ section#moduloVideo{
 
                     .cont-nombre{
                         width: 100%;
-                        height: 500px;
+                        height: 90px;
 
                         h5{
                             font-size: 20px;
@@ -174,12 +182,12 @@ section#moduloVideo{
                         }
                     }
 
-
-
+                    .cont-detalle{
+                        p{
+                            font-size: 14px;
+                            text-align: center;
+                        }
     
-                    p{
-                        font-size: 14px;
-                        text-align: center;
                     }
 
                     iframe#modeloCapsula{
