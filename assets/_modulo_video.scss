@@ -5,7 +5,8 @@ body{
 
 section#moduloVideo{
     width: 100%;
-    height: auto;
+    height: 1200px;
+    overflow: hidden;
  //   background-image: url(./img/fondo_elle_video_desktop.jpg);
  //   background-repeat: no-repeat;
     display: flex;
@@ -137,6 +138,8 @@ section#moduloVideo{
 @media (max-width: 1000px) {
 
     section#moduloVideo{
+        height: 1500px;
+        overflow: hidden;
         //background-image: url(./img/fondo_elle_video_mobile.jpg);
 
 
